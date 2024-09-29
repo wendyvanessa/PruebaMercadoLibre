@@ -30,6 +30,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    viewBinding{
+        android.buildFeatures.viewBinding = true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -47,6 +52,8 @@ dependencies {
 
     implementation (libs.retrofit)
     implementation( libs.koin.android)
+    implementation(libs.converter.gson)
+    implementation (libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

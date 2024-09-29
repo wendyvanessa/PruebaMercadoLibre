@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_horizontal_buttons">20dp</dimen>
+    <dimen name="margin_vertical_buttons">20dp</dimen>
+</resources>
