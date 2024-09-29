@@ -31,7 +31,7 @@ class MainViewModel : ViewModel(){
 
             _processingLiveData.value = true
             productsRepository.getProducts(query)
-                .on:Success {
+                .onSuccess {
                 _itemsLiveData.value = it?.results
                 _processingLiveData.value = false
                 }.onFailure {
