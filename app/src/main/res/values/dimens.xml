@@ -2,4 +2,8 @@
 <resources>
     <dimen name="margin_horizontal_buttons">20dp</dimen>
     <dimen name="margin_vertical_buttons">20dp</dimen>
+    <dimen name="text_size_empty_25sp">25sp</dimen>
+    <dimen name="text_size_price_20sp">20sp</dimen>
+    <dimen name="pading_text_10dp">10dp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
 </resources>

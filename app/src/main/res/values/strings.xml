@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">PruebaMercadoLibre</string>
     <string name="buscar">Buscar en Mercado Libre</string>
+    <string name="buscar_productos">Buscar productos</string>
+
+    <string name="campo_vacio">Por favor ingrese una cadena de búsqueda</string>
+    <string name="title_product">Apple iPhone 11 (128 Gb) - Negro - Distribuidor Autorizado</string>
+    <string name="Price">A1139999.05</string>
+    <string name="installments">12 cuotas de $34.638 con 0% interés</string>
 </resources>

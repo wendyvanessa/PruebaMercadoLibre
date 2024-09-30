@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/custom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_color"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:title="@string/app_name">
+
+        <EditText
+            android:id="@+id/edit_txt_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_buttons"
+            android:layout_marginVertical="@dimen/margin_vertical_buttons"
+            android:background="@drawable/rounded_edit_text"
+            android:drawableStart="@drawable/search_24"
+            android:fontFamily="sans-serif-light"
+            android:imeOptions="actionSearch"
+            android:padding="@dimen/pading_text_10dp"
+            android:text="@string/buscar"
+            android:textAlignment="textStart"
+            android:textColor="@color/gray" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

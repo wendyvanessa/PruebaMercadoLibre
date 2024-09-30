@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/content"
+
+    android:id="@+id/custom_toolbar"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/primary_color"
+    android:fitsSystemWindows="true"
+    android:title="@string/app_name"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/custom_toolbar"
+    <Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/ic_launcher_background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:title="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button"
+        <EditText
+            android:id="@+id/edit_txt_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_horizontal_buttons"
             android:layout_marginVertical="@dimen/margin_vertical_buttons"
+            android:background="@drawable/rounded_edit_text"
             android:drawableLeft="@drawable/search_24"
             android:fontFamily="sans-serif-light"
-            android:text="@string/buscar"
+            android:hint="@string/buscar"
+            android:imeOptions="actionSearch"
+            android:padding="10dp"
+            android:singleLine="true"
             android:textAlignment="textStart"
-            android:textColor="@color/gray"
+            android:textSize="14sp"
             android:theme="@style/Theme.ButtonPruebaMercadoLibre" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </Toolbar>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.appbar.AppBarLayout>
+
