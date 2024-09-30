@@ -9,14 +9,20 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pruebamercadolibre.R
 import com.example.pruebamercadolibre.databinding.ActivityMainBinding
+import com.example.pruebamercadolibre.ui.detail.DetailActivity
 import com.example.pruebamercadolibre.ui.observe
+import com.example.pruebamercadolibre.ui.startActivity
 import com.example.pruebamercadolibre.ui.toast
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     private val mainViewModel: MainViewModel by viewModel()
-    val adapter by lazy { MainAdapter() }
+    val adapter by lazy {
+        MainAdapter(){ items ->
+        mainViewModel.onMediaItemClicked(items)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +83,12 @@ class MainActivity : AppCompatActivity() {
                 if (error) {
                     toast(getString(R.string.error_api))
                 }
+            }
+            observe(navigateToDetail){ item->
+                startActivity<DetailActivity>(
+                    DetailActivity.THUMBNAIL to item.thumbnail,
+                    DetailActivity.TITLE to item.title,
+                    DetailActivity.PRICE to item.price.toString())
             }
         }
     }

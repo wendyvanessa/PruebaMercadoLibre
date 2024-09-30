@@ -11,7 +11,8 @@ import com.example.pruebamercadolibre.ui.loadUrl
 import kotlin.properties.Delegates
 
 class MainAdapter (
-    items:List<ProductItem> = emptyList()):
+    items:List<ProductItem> = emptyList(),
+    private val listener: (ProductItem)-> Unit):
     RecyclerView.Adapter<MainAdapter.ViewHolder>(){
 
     // Se actualizara la vista cada vez que la lista de items se mencione
@@ -31,7 +32,7 @@ class MainAdapter (
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.bind(item)
-        //holder.itemView.setOnClickListener { listener(item) }
+        holder.itemView.setOnClickListener { listener(item) }
     }
 
     // Obtenemos el número de elementos que tiene el adapter

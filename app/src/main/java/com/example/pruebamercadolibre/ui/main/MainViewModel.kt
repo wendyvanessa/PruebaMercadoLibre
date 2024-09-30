@@ -18,6 +18,9 @@ class MainViewModel(
     private val _itemsLiveData = MutableLiveData<List<ProductItem>>()
     val itemsLiveData: LiveData<List<ProductItem>> get() = _itemsLiveData
 
+    private val _navigateToDetail = MutableLiveData<ProductItem>()
+    val navigateToDetail: LiveData<ProductItem> get() = _navigateToDetail
+
     private val _processingLiveData = MutableLiveData<Boolean>()
     val processingLiveData: LiveData<Boolean> get() = _processingLiveData
 
@@ -46,5 +49,9 @@ class MainViewModel(
                     }
             }
         }
+    }
+
+    fun onMediaItemClicked(mediaItem: ProductItem){
+        _navigateToDetail.value = mediaItem
     }
 }

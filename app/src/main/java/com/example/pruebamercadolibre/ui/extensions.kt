@@ -1,8 +1,11 @@
 package com.example.pruebamercadolibre.ui
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -29,4 +32,12 @@ fun ImageView.loadUrl(url: String){
  */
 fun <T> LifecycleOwner.observe(livedata: LiveData<T>, observer: (T) -> Unit){
     livedata.observe(this, Observer(observer))
+}
+
+
+inline fun <reified T : Activity> Context.startActivity(vararg pairs: Pair<String, Any?>) {
+    val intent = Intent(this, T::class.java)
+    val bundle = bundleOf(*pairs)
+    intent.putExtras(bundle)
+    startActivity(intent)
 }
