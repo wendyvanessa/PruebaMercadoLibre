@@ -1,7 +1,6 @@
 package com.example.pruebamercadolibre.data
 
 import com.example.pruebamercadolibre.data.model.ListProductsItems
-import com.example.pruebamercadolibre.data.model.ProductItem
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

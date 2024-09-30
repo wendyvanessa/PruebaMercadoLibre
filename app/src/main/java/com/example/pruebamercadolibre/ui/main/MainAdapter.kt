@@ -40,8 +40,6 @@ class MainAdapter (
     class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val binding = ViewItemBinding.bind(view)
 
-
-
         fun bind(productItem: ProductItem){
             productItem.title?.let { binding.titleProduct.text = it }
             productItem.price?.let { binding.price.text = "$ $it" }

@@ -18,10 +18,15 @@ class ProductsRepository {
      */
     suspend fun getProducts(query: String) : Result<ListProductsItems?> {
         return try{
-            Result.success(service.getProducts(query).body())
+            val response = service.getProducts(query)
+            if (response.isSuccessful) {
+                Result.success(response.body())
+            }else{
+                Log.e("Error", "Error al obtener productos: ${response.code()}")
+                Result.failure(Exception("Error al obtener productos: ${response.code()}"))
+            }
         }catch (e:Exception){
             Log.e("Error", "Error al obtener productos: ${e.message}")
-            e.printStackTrace()
             Result.failure(e)
         }
     }

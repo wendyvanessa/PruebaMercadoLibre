@@ -89,8 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-thin"
-                    android:text="@string/installments
-z"
+                    android:text="@string/installments"
                     android:textColor="@color/green_installments"
                     android:textSize="@dimen/text_size_12sp"
                     android:textStyle="bold"

@@ -39,6 +39,16 @@
         app:layout_constraintTop_toBottomOf="@+id/custom_toolbar"
         tools:listitem="@layout/view_item" />
 
+    <WebView
+        android:id="@+id/wenview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler"
+        android:visibility="gone"/>
+
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"

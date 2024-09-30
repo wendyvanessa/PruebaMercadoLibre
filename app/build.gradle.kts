@@ -54,7 +54,11 @@ dependencies {
     implementation( libs.koin.android)
     implementation(libs.converter.gson)
     implementation(libs.glide)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.fragment.ktx)
     annotationProcessor(libs.compiler)
+    implementation("androidx.webkit:webkit:1.8.0")
 
 
     testImplementation(libs.junit)

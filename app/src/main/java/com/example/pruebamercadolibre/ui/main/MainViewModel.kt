@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pruebamercadolibre.data.Repository.ProductsRepository
 import com.example.pruebamercadolibre.data.model.ProductItem
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class MainViewModel : ViewModel(){
-
-    val productsRepository = ProductsRepository()
+class MainViewModel(
+    private val productsRepository: ProductsRepository,
+    private val ioDispatcher: CoroutineDispatcher
+) : ViewModel() {
 
     private val _itemsLiveData = MutableLiveData<List<ProductItem>>()
     val itemsLiveData: LiveData<List<ProductItem>> get() = _itemsLiveData
@@ -28,18 +31,20 @@ class MainViewModel : ViewModel(){
      */
     fun getProductsImp(query: String) {
         viewModelScope.launch {
-
             _processingLiveData.value = true
-            productsRepository.getProducts(query)
-                .onSuccess {
-                    if ( it?.results != null){
-                        _itemsLiveData.value = it.results
+            withContext(ioDispatcher) {
+                productsRepository.getProducts(query)
+                    .onSuccess {
+                        if (it?.results != null) {
+                            _itemsLiveData.postValue(it.results)
+                        }
+                        _errorLiveData.postValue(false)
+                        _processingLiveData.postValue(false)
+                    }.onFailure {
+                        _errorLiveData.postValue(true)
+                        _processingLiveData.postValue(false)
                     }
-                    _processingLiveData.value = false
-                }.onFailure {
-                    _errorLiveData.value = true
-                    _processingLiveData.value = false
-                }
+            }
         }
     }
 }
